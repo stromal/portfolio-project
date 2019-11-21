@@ -15,4 +15,4 @@ class Blog1(models.Model):
 
 #migrate
 
-#Add to the admin
+#Add to the admin.py the model
