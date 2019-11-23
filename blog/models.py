@@ -8,6 +8,8 @@ class Blog1(models.Model):
     body_b = models.TextField()
     image_b = models.ImageField(upload_to='images/')
 
+    def summary_b(self):
+        return self.body_b[:100]
 
 #add the Blog app to the settings
 
