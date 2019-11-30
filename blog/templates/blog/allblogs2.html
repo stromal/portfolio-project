@@ -1,11 +1,18 @@
- <html lang="en">
+<!--https://stackoverflow.com/questions/22030128/django-imagefield-files-not-showing-up-->
+<!-- -->
+
+<!doctype html>
+{% load staticfiles %}
+
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
-  <title>Album example · Bootstrap</title>
+  <title> #MY WEBSITE DJANGO </title>
+  <link rel="shortcut icon" href="{% static 'favicon1.png' %}" /
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -15,20 +22,20 @@
 
 
   <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
     }
+  }
   </style>
   <!-- Custom styles for this template -->
   <!-- <link href="album.css" rel="stylesheet"> -->
@@ -66,15 +73,16 @@
 </div>
 </div> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Béla 2 Legenda BLOG</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Chëf Store BLOG</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#">Twitter</a>
-      <a class="nav-item nav-link" href="#">Resume</a>
-      <a class="nav-item nav-link active" href="#">Blog</a>
+      <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+      <a class="nav-item nav-link" href="https://twitter.com/ClickHelps">Twitter</a>
+      <a class="nav-item nav-link" href="{% static 'me_cv.pdf' %}">Resume</a>
+      <a class="nav-item nav-link active" href="{% url 'allblogs2' %}">Blog</a>
       <!-- <a class="nav-item nav-link active" href="#">Twitter <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
     </div>
@@ -84,19 +92,17 @@
 
 <main role="main">
   <div class="container">
-    <h1 class="text-center pt-4">Willomen ich eine blog</h1>
-    <br />
+    <h1 class="text-center pt-4">Willkommen! Ich spreche kein deutsch!</h1>
     <br />
     <h2> Latest Posts</h2>
     <hr />
-    {% for blog1 in blog1s.all %}
-    <a href=""><h3>{{ blog1.title_b }}</h3></a>
-    {{ blog1.title_b }}
-    {{ blog1.pub_date_b}}
+    {% for blog in blogs.all %}
+    <a href="{% url 'detail1' blog1.id%}"><h3>{{ blog.title_b }}</h3></a>
+    {{ blog.pub_date_pretty }}
     <br />
-    <img class="img-fluid" src="{{ Blog1.image_b.url }}" height=203 width=202 />
+    <img class="img-fluid" src="{{ blog.image_b.url }}" height=203 width=202 />
     <br />
-    <p>{{ blog1.summary_b}}</p>
+    <p>{{ blog.summary_b }}</p>
     {% endfor %}
     <br />
   </div>

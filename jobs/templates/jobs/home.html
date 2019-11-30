@@ -1,11 +1,15 @@
+<!doctype html>
 <html lang="en">
+{% load staticfiles %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
-  <title>Album example · Bootstrap</title>
+  <title> #MY WEBSITE DJANGO </title>
+  <link rel="shortcut icon" href="{% static 'favicon1.png' %}" />
+
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -66,15 +70,16 @@
 </div>
 </div> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Béla 2 Legenda</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Chëf Store HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#">Twitter</a>
-      <a class="nav-item nav-link" href="#">Resume</a>
-      <a class="nav-item nav-link" href="#">Blog</a>
+      <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>
+      <a class="nav-item nav-link" href="https://twitter.com/ClickHelps">Twitter</a>
+      <a class="nav-item nav-link" href="{% static 'me_cv.pdf' %}">Resume</a>
+      <a class="nav-item nav-link" href="{% url 'allblogs2' %}">Blog</a>
       <!-- <a class="nav-item nav-link active" href="#">Twitter <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
     </div>
@@ -92,25 +97,25 @@
         <a href="mailto:mayemail@myemail.com" class="btn btn-primary my-2">e-mail me</a>
         <a href="#" class="btn btn-secondary my-2">Secondary action</a>
       </p>
+      <img src="{% static 'me_image.jpg' %}" />
     </div>
   </section>
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
 
-        {% for Job1 in Job1.all %}
+        {% for job in jobs.all %}
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="{{ job1.image1.url }}" />
+            <img class="card-img-top" src="{{ job.image1.url }}" />
             <div class="card-body">
-              <p class="card-text">{{ Job1.summary1 }}</p>
+              <p class="card-text">{{ job.summary1 }}</p>
             </div>
           </div>
         </div>
         {% endfor %}
       </div>
     </div>
-
   </main>
 
   <footer class="text-muted">
