@@ -136,6 +136,6 @@ MEDIA_URL = '/this_is_what_U_see_in_URL_bar_for_Media_files/'
 
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
